@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FiguresBehaviour : MonoBehaviour { 
+public class FiguresBehaviour : MonoBehaviour, IGvrGazeResponder { 
 	private bool collided;
 
 	void Start () {
@@ -51,4 +51,26 @@ public class FiguresBehaviour : MonoBehaviour {
 
 		collided = true;
 	}
+
+
+	#region IGvrGazeResponder implementation
+
+	/// Called when the user is looking on a GameObject with this script,
+	/// as long as it is set to an appropriate layer (see GvrGaze).
+	public void OnGazeEnter() {
+		collided = true;
+	}
+
+	/// Called when the user stops looking on the GameObject, after OnGazeEnter
+	/// was already called.
+	public void OnGazeExit() {
+		collided = false;
+	}
+
+	/// Called when the viewer's trigger is used, between OnGazeEnter and OnGazeExit.
+	public void OnGazeTrigger() {
+		
+	}
+
+	#endregion
 }

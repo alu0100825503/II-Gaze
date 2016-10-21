@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class RandomObjectsGenerator : MonoBehaviour {
 	private const int NUM_RND_OBJECTS = 50;
@@ -38,10 +39,10 @@ public class RandomObjectsGenerator : MonoBehaviour {
 			newObj2.AddComponent <FiguresBehaviour>();
 			newObj3.AddComponent <FiguresBehaviour>();
 
-			// Adding a Renderer component to the new objects
-			//newObj1.AddComponent <Renderer>();
-			//newObj2.AddComponent <Renderer>();
-			//newObj3.AddComponent <Renderer>();
+			// Adding the Event Trigger component
+			newObj1.AddComponent <EventTriggerVR>();
+			newObj2.AddComponent <EventTriggerVR>();
+			newObj3.AddComponent <EventTriggerVR>();
 
 			newObj1.tag = "newObj1";
 			newObj2.tag = "newObj2";
